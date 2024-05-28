@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+// Import the pages
+import Home from "./Components/Home"
+import About from "./Components/About"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Import css
+import "./App.scss"
+
+const App = () => {
+
+	return (
+		<>
+			<Routes>
+				<Route exact path="/" element={<Home />} />
+				<Route exact path="books" element={<About />} />
+			</Routes>
+
+			<div className="header">
+				<a name="title"></a>
+				<div className="container">
+					<h1 className="logo">Книжник</h1>
+					<nav>
+						<ul>
+							<li><Link to="/">Об авторе </Link></li>
+							<li><Link to="books">Книги</Link></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+		</>
+	);
+};
 
 export default App;

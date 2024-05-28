@@ -1,29 +1,43 @@
+$BackgroundColor: #bde0c2;
+
+$HeaderBackground: #bc4749;
+$HeaderFont-Size: 26px;
+
+$AuthorCardBackground: #b8e47d;
+
+$BookBackgroundCard: #a7c957;
+
+$BookCardWidth: 480px;
+$BookCardHeight: 360px;
+
+$Font: "Roboto Slab", serif;
+
+
 body {
 	height: auto;
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: "Roboto Slab", serif;
+	font-family: $Font;
 	font-style: normal;
-	box-sizing: border-box;
-	margin-top: 110px;
-	background-color: #bde0c2;
-
+	margin-top: 140px;
+	background-color: $BackgroundColor;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
 
+//Шапка
+
 .header {
 	grid-area: 1 / 1 / 2 / 2;
-	background-color: #bc4749;
-
+	background-color: $HeaderBackground;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1000;
 	font-weight: 400;
-	font-size: 26px;
+	font-size: $HeaderFont-Size;
 	order: 0;
 }
 
@@ -77,14 +91,18 @@ nav ul li a {
 	display: inline-block;
 }
 
+//Карточка писателя
+
 #card {
-	background-color: #b8e47d;
+	background-color: $AuthorCardBackground;
 }
 
 
 .p {
 	word-wrap: break-word;
 }
+
+//Поиск, категоризация и фильтрация книг
 
 #selector {
 	position: relative;
@@ -161,33 +179,29 @@ nav ul li a {
 	transition: 0.25s all ease;
 }
 
+//Карточки с книгами
 
-
-#link {
+.card {
+	margin: 0 auto;
 	display: inline-block;
-	width: 200px;
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	float: right;
-	color: black;
-	padding: 0.5rem 1rem;
-	text-decoration: none;
-	background: hsl(133 40% 48%);
-	border-radius: 0.6rem;
-	font-weight: 700;
-	border: 0.35rem solid;
-	border-color: darkgreen;
-
+	overflow: hidden;
+	margin: 20px;
+	padding: 10px;
+	background-color: #6a994e;
 }
 
-.text {
-	font-weight: bold;
-	margin-top: 10px;
-	font-size: 20px;
-
+.columns {
+	display: grid;
+	grid-template-columns: repeat(5, auto);
+	grid-template-rows: repeat(3, auto);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	width: $BookCardWidth;
+	height: $BookCardHeight;
+	border: 2px white solid;
+	background-color: $BookBackgroundCard;
+	padding: 15px;
 }
-
 
 .image {
 	grid-area: 1 / 1 / 4 / 3;
@@ -198,7 +212,6 @@ nav ul li a {
 .title {
 	grid-area: 1 / 3 / 2 / 6;
 	vertical-align: middle;
-
 }
 
 .genre {
@@ -217,25 +230,19 @@ nav ul li a {
 	grid-area: 3 / 3 / 4 / 6;
 }
 
-.card {
-	margin: 0 auto;
+#link {
 	display: inline-block;
-	overflow: hidden;
-	margin: 20px;
-	padding: 10px;
-	background-color: #6a994e;
-
-}
-
-.columns {
-	display: grid;
-	grid-template-columns: repeat(5, auto);
-	grid-template-rows: repeat(3, auto);
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-	width: 480px;
-	height: 360px;
-	border: 2px white solid;
-	background-color: #a7c957;
-	padding: 15px;
+	width: 200px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	float: right;
+	color: black;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	background: hsl(133 40% 48%);
+	border-radius: 0.6rem;
+	font-weight: 700;
+	border: 0.35rem solid;
+	border-color: darkgreen;
 }
